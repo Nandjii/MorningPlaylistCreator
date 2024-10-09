@@ -48,7 +48,10 @@ def get_device_id(devices):
 sp = Spotify(auth_manager=SpotifyOAuth(scope=SCOPE,
                                        client_id=SP_CLIENT_ID,
                                        client_secret=SP_CLIENT_PASS,
-                                       redirect_uri=SP_REDIRECT_URI))
+                                       redirect_uri=SP_REDIRECT_URI,
+                                       open_browser=False,  
+                                       cache_path=".cache",  
+                                       show_dialog=True))
 
 # remove exiting playlist
 morning = sp.playlist_items(playlist_id=playlist_morning_routine)["items"]
